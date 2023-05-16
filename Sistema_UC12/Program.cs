@@ -10,5 +10,7 @@ class Program
         novaPessoa.nome = "Ygor";
         novaPessoa.endereco = "Rua Broadway, 255";
         novaPessoa.enderecoComercial = false;
+
+        Console.WriteLine(novaPessoa.nome);
     }
 }
