@@ -19,6 +19,14 @@ class Program
         novapf.dataNascimento = new DateTime(2004, 01, 18);
         novapf.nome = "Ygor de Andrade Guides";
 
+        bool idadeValidada = novapf.validarDataNascimento(novapf.dataNascimento);
+        if(idadeValidada = true){
+            Console.WriteLine($"Pode beber pinga.");
+        }else{
+            Console.WriteLine($"Ainda vai ficar só no refri.");
+        }
+
+
         //Console.WriteLine(novapf.endereco.logradouro);
         //Console.WriteLine(novapf.endereco.numero);
         //Console.WriteLine(novapf.endereco.complemento);
