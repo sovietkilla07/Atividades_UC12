@@ -9,7 +9,7 @@ namespace Sistema_UC12.Classes
     {
         public string? nome { get; set; }
 
-        public Endereco endereco { get; set; }
+        public Endereco? endereco { get; set; }
 
         public abstract void pagarImposto(float rendimento);
     }
