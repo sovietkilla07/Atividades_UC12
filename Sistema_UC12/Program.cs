@@ -7,5 +7,7 @@ class Program
     {
         PessoaFisica Ygor = new PessoaFisica();
         Ygor.nome = "Ygor";
+
+        Console.WriteLine(Ygor.nome); 
     }
 }

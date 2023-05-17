@@ -7,8 +7,8 @@ namespace Sistema_UC12.Classes
 {
     public class PessoaJuridica : Pessoa
     {
-        public string cnpj { get; set; }
+        public string? cnpj { get; set; }
 
-        public string razaoSocial { get; set; }
+        public string? razaoSocial { get; set; }
     }
 }
