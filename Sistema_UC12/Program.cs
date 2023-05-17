@@ -19,12 +19,20 @@ class Program
         novapf.dataNascimento = new DateTime(2004, 01, 18);
         novapf.nome = "Ygor de Andrade Guides";
 
-        Console.WriteLine(novapf.endereco.logradouro);
-        Console.WriteLine(novapf.endereco.numero);
-        Console.WriteLine(novapf.endereco.complemento);
-        Console.WriteLine(novapf.endereco.enderecoComercial);
-        Console.WriteLine(novapf.cpf);
-        Console.WriteLine(novapf.dataNascimento);
-        Console.WriteLine(novapf.nome);
+        //Console.WriteLine(novapf.endereco.logradouro);
+        //Console.WriteLine(novapf.endereco.numero);
+        //Console.WriteLine(novapf.endereco.complemento);
+        //Console.WriteLine(novapf.endereco.enderecoComercial);
+        //Console.WriteLine(novapf.cpf);
+        //Console.WriteLine(novapf.dataNascimento);
+        //Console.WriteLine(novapf.nome);
+
+        //Interpolação
+
+        Console.WriteLine($"O endereço do {novapf.nome} é {novapf.endereco.logradouro}, número {novapf.endereco.numero}.");
+
+        //Concatenação
+
+        Console.WriteLine("O endereço do " + novapf.nome + " é " + novapf.endereco.logradouro + ", número " + novapf.endereco.numero + ".");
     }
 }
