@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 
 namespace Sistema_UC12.Classes
 {
-    public class Pessoa
+    public abstract class Pessoa
     {
-        public string nome { get; set; }
+        public string? nome { get; set; }
 
-        public string endereco { get; set; }
+        public string? endereco { get; set; }
 
         public bool enderecoComercial { get; set; }
+
+        public void pagarImposto(){}
     }
 }
