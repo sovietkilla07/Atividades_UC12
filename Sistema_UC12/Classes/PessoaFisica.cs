@@ -13,5 +13,10 @@ namespace Sistema_UC12.Classes
         public string? rg { get; set; }
 
         public DateTime dataNascimento { get; set; }
+
+        public override void pagarImposto(float rendimento)
+        {
+            
+        }
     }
 }
