@@ -15,5 +15,16 @@ namespace Sistema_UC12.Classes
         {
             
         }
+
+        public bool validarCNPJ(string cnpj)
+        {
+            if (cnpj.Length >= 14 && (cnpj.Substring(cnpj.Length - 4)) == "0001")
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
     }
 }
