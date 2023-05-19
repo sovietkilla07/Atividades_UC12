@@ -10,26 +10,19 @@ class Program
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine(@$"
         #############################################################################
-        |                                                                           |
-        | Seja Bem-Vindo ao sistema de cadastro de pessoa física e pessoa jurídica! |
-        |                                                                           |
+        #                                                                           #
+        # Seja Bem-Vindo ao sistema de cadastro de pessoa física e pessoa jurídica! #
+        #                                                                           #
         #############################################################################
         ");
-        Console.Write("Iniciando");
+        Console.WriteLine("Iniciando");
         Thread.Sleep(750);
-        Console.Write(".");
-        Thread.Sleep(750);
-        Console.Write(".");
-        Thread.Sleep(750);
-        Console.Write(".");
-        Thread.Sleep(750);
-        Console.Write(".");
-        Thread.Sleep(750);
-        Console.Write(".");
-        Thread.Sleep(750);
-        Console.Write(".");
-        Thread.Sleep(750);
-        Console.Write(".");
+
+        for (var contador = 0; contador < 10; contador++)
+        {
+            Console.Write("|");
+            Thread.Sleep(750);
+        }
 
 
         Console.ResetColor();
