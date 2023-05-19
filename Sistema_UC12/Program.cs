@@ -24,6 +24,43 @@ class Program
             Thread.Sleep(750);
         }
 
+        Console.Clear();
+        Console.WriteLine(@$"
+        
+        #############################################################################
+        #                                                                           #
+        #                 Escolha uma das opções abaixo:                            #
+        #                                                                           #
+        #############################################################################
+        #                                                                           #
+        #                 1 - Pessoa Física (PF)                                    #
+        #                 2 - Pessoa Jurídica (PJ)                                  #
+        #                                                                           #
+        #                 0 - Sair                                                  #
+        #############################################################################
+        
+        ");
+
+        string opcao = Console.ReadLine();
+
+        switch (opcao)
+        {
+            case "1":
+            Console.WriteLine("Você escolheu a opção 1.");
+            break;
+
+            case "2":
+            Console.WriteLine("Você escolheu a opção 2.");
+            break;
+
+            case "0":
+            Console.WriteLine("Você escolheu a opção 0.");
+            break;
+
+            default:
+            Console.WriteLine("Opção inválida! Digite uma das opções apresentadas.");
+            break;
+        }
 
         Console.ResetColor();
 
