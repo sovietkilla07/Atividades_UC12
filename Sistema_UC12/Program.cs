@@ -6,6 +6,18 @@ class Program
 {
     static void Main(string[] args)
     {
+        void barraCarregamento(string textoCarregamento)
+        {
+            Console.WriteLine(textoCarregamento);
+            Thread.Sleep(750);
+
+            for (var contador = 0; contador < 10; contador++)
+            {
+                Console.Write("|");
+                Thread.Sleep(750);
+            }
+        }
+
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine(@$"
@@ -15,16 +27,15 @@ class Program
         #                                                                           #
         #############################################################################
         ");
-        Console.WriteLine("Iniciando");
-        Thread.Sleep(750);
-
-        for (var contador = 0; contador < 10; contador++)
-        {
-            Console.Write("|");
-            Thread.Sleep(750);
-        }
+        
+        barraCarregamento("Iniciando");
 
         Console.Clear();
+
+        string opcao;
+
+        do
+        {
         Console.WriteLine(@$"
         
         #############################################################################
@@ -41,7 +52,7 @@ class Program
         
         ");
 
-        string opcao = Console.ReadLine();
+        opcao = Console.ReadLine();
 
         switch (opcao)
         {
@@ -54,13 +65,17 @@ class Program
             break;
 
             case "0":
-            Console.WriteLine("Você escolheu a opção 0.");
+            Console.WriteLine("Obrigado por utilizar nosso sistema!");
+            Thread.Sleep(750);
+            barraCarregamento("Finalizando");
             break;
 
             default:
             Console.WriteLine("Opção inválida! Digite uma das opções apresentadas.");
             break;
         }
+
+        }while(opcao != "0");
 
         Console.ResetColor();
 
