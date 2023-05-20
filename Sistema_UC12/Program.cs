@@ -9,12 +9,12 @@ class Program
         void barraCarregamento(string textoCarregamento)
         {
             Console.WriteLine(textoCarregamento);
-            Thread.Sleep(750);
+            Thread.Sleep(500);
 
             for (var contador = 0; contador < 10; contador++)
             {
                 Console.Write("|");
-                Thread.Sleep(750);
+                Thread.Sleep(500);
             }
         }
 
