@@ -14,9 +14,20 @@ namespace Sistema_UC12.Classes
 
         public DateTime dataNascimento { get; set; }
 
-        public override void pagarImposto(float rendimento)
+        public override double pagarImposto(float rendimento)
         {
-            
+            if (rendimento <= 1500)
+            {
+                return 0;
+            } 
+            else if (rendimento > 1501 && rendimento <= 5000)
+            {
+                return rendimento * .03;
+            }
+            else
+            {
+                return rendimento * .05;
+            }
         }
 
         public bool validarDataNascimento(DateTime dataNasc)

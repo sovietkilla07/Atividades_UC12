@@ -11,6 +11,6 @@ namespace Sistema_UC12.Classes
 
         public Endereco? endereco { get; set; }
 
-        public abstract void pagarImposto(float rendimento);
+        public abstract double pagarImposto(float rendimento);
     }
 }

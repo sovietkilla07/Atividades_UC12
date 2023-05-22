@@ -11,9 +11,20 @@ namespace Sistema_UC12.Classes
 
         public string? razaoSocial { get; set; }
 
-        public override void pagarImposto(float rendimento)
+        public override double pagarImposto(float rendimento)
         {
-            
+            if (rendimento <= 5000)
+            {
+                return rendimento * .06 ;
+            }
+            else if (rendimento > 5001 && rendimento < 10000)
+            {
+                return rendimento * .08 ;
+            }
+            else
+            {
+                return rendimento * .1 ;
+            }
         }
 
         public bool validarCNPJ(string cnpj)
