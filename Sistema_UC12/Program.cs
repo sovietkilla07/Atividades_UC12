@@ -30,6 +30,8 @@ class Program
         
         barraCarregamento("Iniciando");
 
+        List<PessoaFisica> listapf = new List<PessoaFisica>();
+
         Console.Clear();
 
         string opcao;
@@ -119,7 +121,10 @@ class Program
                         }
 
                         Console.WriteLine("Digite o nome da pessoa física:");
-                        novapf.nome = "Ygor de Andrade Guides";
+                        novapf.nome = Console.ReadLine();
+
+                        listapf.Add(novapf);
+                        Console.WriteLine("Cadastro efetuado com sucesso!");
 
                         break;
 
