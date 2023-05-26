@@ -125,10 +125,34 @@ class Program
 
                         listapf.Add(novapf);
                         Console.WriteLine("Cadastro efetuado com sucesso!");
+                        Thread.Sleep(5000);
 
                         break;
 
                     case "2":
+
+                    Console.Clear();
+
+                    if(listapf.Count > 0)
+                    {
+                        foreach(PessoaFisica cadaPessoa in listapf)
+                        {
+                            Console.Clear();
+                            Console.WriteLine(@$"
+
+                            Nome: {cadaPessoa.nome}
+                            Endereço: {cadaPessoa.endereco.logradouro}, número {cadaPessoa.endereco.numero} ({cadaPessoa.endereco.complemento})
+                            Data de nascimento: {cadaPessoa.dataNascimento}
+                            CPF: {cadaPessoa.cpf}
+                            ");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Lista vazia! Aguarde alguns instantes para voltar ao menu.");
+                        Thread.Sleep(5000);
+                    }
+
                         break;
 
                     case "0":
