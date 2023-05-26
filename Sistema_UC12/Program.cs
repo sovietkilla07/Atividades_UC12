@@ -57,29 +57,99 @@ class Program
         switch (opcao)
         {
             case "1":
-            Console.WriteLine("Você escolheu a opção 1.");
+            
+            string? opcaoPF;
 
-            Endereco end = new Endereco();
-            end.logradouro = "Rua Isabela Luna Tavares";
-            end.numero = 553;
-            end.complemento = "Casa";
-            end.enderecoComercial = false;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine(@$"
+        
+                #############################################################################
+                #                                                                           #
+                #                 Escolha uma das opções abaixo:                            #
+                #                                                                           #
+                #############################################################################
+                #                                                                           #
+                #                 1 - Cadastrar Pessoa Física                               #
+                #                 2 - Mostrar Pessoas Físicas                               #
+                #                                                                           #
+                #                 0 - Voltar ao menu anterior                               #
+                #                                                                           #
+                #############################################################################
+        
+        ");
+                opcaoPF = Console.ReadLine();
 
-            PessoaFisica novapf = new PessoaFisica();
+                switch (opcaoPF)
+                {
+                    case "1":
 
-            novapf.cpf = "657.242.782-33";
-            novapf.endereco = end;
-            novapf.dataNascimento = new DateTime(2004, 01, 18);
-            novapf.nome = "Ygor de Andrade Guides";
+                        PessoaFisica novapf = new PessoaFisica();
+                        Endereco end = new Endereco();
 
-            Console.WriteLine($"O endereço do {novapf.nome} é {novapf.endereco.logradouro}, número {novapf.endereco.numero}.");
+                        Console.WriteLine("Digite o logradouro da PF que deseja cadastrar:");
+                        end.logradouro = Console.ReadLine();
+                        Console.WriteLine("Digite o número do endereço da PF:");
+                        end.numero = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Digite o complemento do endereço:");
+                        end.complemento = Console.ReadLine();
+                        Console.WriteLine("O local especificado é um endereço comercial? S/N");
+                        string endCom = Console.ReadLine().ToUpper();
+                        if (endCom == "S")
+                        {
+                            end.enderecoComercial = true;
+                        }
+                        else
+                        {
+                            end.enderecoComercial = false;
+                        }
+                        
+                        Console.WriteLine("Digite o CPF:");
+                        novapf.cpf = Console.ReadLine();
+                        novapf.endereco = end;
+                        Console.WriteLine("Digite a data de nascimento (AAAA/MM/DD):");
+                        novapf.dataNascimento = DateTime.Parse(Console.ReadLine());
+                        bool idadeValidada = novapf.validarDataNascimento(novapf.dataNascimento);
 
-            bool idadeValidada = novapf.validarDataNascimento(novapf.dataNascimento);
-            if(idadeValidada == true){
-                Console.WriteLine($"Pode beber pinga.");
-            }else{
-                Console.WriteLine($"Ainda vai ficar só no refri.");
-            }
+                        if(idadeValidada == true){
+                            Console.WriteLine($"Pode beber pinga.");
+                        }else{
+                            Console.WriteLine($"Ainda vai ficar só no refri.");
+                        }
+
+                        Console.WriteLine("Digite o nome da pessoa física:");
+                        novapf.nome = "Ygor de Andrade Guides";
+
+                        break;
+
+                    case "2":
+                        break;
+
+                    case "0":
+                        break;
+
+                    default:
+
+                    Console.Clear();
+                    Console.WriteLine("Opção inválida. Por favor, digite outra opção.");
+                    Thread.Sleep(2000);
+                        break;
+                }
+
+            } while (opcaoPF != "0");
+
+
+            
+
+
+
+
+
+
+            // Console.WriteLine($"O endereço do {novapf.nome} é {novapf.endereco.logradouro}, número {novapf.endereco.numero}.");
+
+             
 
             break;
 
