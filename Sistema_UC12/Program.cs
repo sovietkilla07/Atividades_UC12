@@ -89,13 +89,33 @@ class Program
 
                         PessoaFisica novapf = new PessoaFisica();
                         Endereco end = new Endereco();
+                        novapf.endereco = end;       
 
-                        Console.WriteLine("Digite o logradouro da PF que deseja cadastrar:");
+			            Console.WriteLine("Digite o nome da pessoa física:");
+                        novapf.nome = Console.ReadLine();
+
+			            Console.WriteLine("Digite a data de nascimento (AAAA/MM/DD):");
+                        novapf.dataNascimento = DateTime.Parse(Console.ReadLine());
+                        bool idadeValidada = novapf.validarDataNascimento(novapf.dataNascimento);
+
+                        if(idadeValidada == true){
+                            Console.WriteLine($"Pode beber pinga.");
+                        }else{
+                            Console.WriteLine($"Ainda vai ficar só no refri.");
+                        }
+
+			            Console.WriteLine("Digite o CPF:");
+                        novapf.cpf = Console.ReadLine();
+
+			            Console.WriteLine("Digite o logradouro da PF que deseja cadastrar:");
                         end.logradouro = Console.ReadLine();
+
                         Console.WriteLine("Digite o número do endereço da PF:");
                         end.numero = int.Parse(Console.ReadLine());
+
                         Console.WriteLine("Digite o complemento do endereço:");
                         end.complemento = Console.ReadLine();
+
                         Console.WriteLine("O local especificado é um endereço comercial? S/N");
                         string endCom = Console.ReadLine().ToUpper();
                         if (endCom == "S")
@@ -106,22 +126,6 @@ class Program
                         {
                             end.enderecoComercial = false;
                         }
-                        
-                        Console.WriteLine("Digite o CPF:");
-                        novapf.cpf = Console.ReadLine();
-                        novapf.endereco = end;
-                        Console.WriteLine("Digite a data de nascimento (AAAA/MM/DD):");
-                        novapf.dataNascimento = DateTime.Parse(Console.ReadLine());
-                        bool idadeValidada = novapf.validarDataNascimento(novapf.dataNascimento);
-
-                        if(idadeValidada == true){
-                            Console.WriteLine($"Pode beber pinga.");
-                        }else{
-                            Console.WriteLine($"Ainda vai ficar só no refri.");
-                        }
-
-                        Console.WriteLine("Digite o nome da pessoa física:");
-                        novapf.nome = Console.ReadLine();
 
                         listapf.Add(novapf);
                         Console.WriteLine("Cadastro efetuado com sucesso!");
