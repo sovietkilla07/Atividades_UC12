@@ -150,6 +150,8 @@ class Program
                             CPF: {cadaPessoa.cpf}
                             ");
                         }
+                        Console.WriteLine("Digite qualquer tecla para continuar.");
+                        Console.ReadLine();
                     }
                     else
                     {
