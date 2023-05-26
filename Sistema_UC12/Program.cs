@@ -127,7 +127,12 @@ class Program
                             end.enderecoComercial = false;
                         }
 
-                        listapf.Add(novapf);
+                        using(StreamWriter sw = new StreamWriter($"{novapf.nome}.txt"))
+                        {
+                            sw.WriteLine(novapf.nome);
+                            sw.WriteLine(novapf.dataNascimento);
+                        }
+
                         Console.WriteLine("Cadastro efetuado com sucesso!");
                         Thread.Sleep(5000);
 
@@ -135,29 +140,20 @@ class Program
 
                     case "2":
 
-                    Console.Clear();
+                    Console.WriteLine("Digite o nome da PF que deseja consultar:");
+                    string registro = Console.ReadLine();
 
-                    if(listapf.Count > 0)
+                    using(StreamReader sr = new StreamReader($"{registro}.txt"))
                     {
-                        foreach(PessoaFisica cadaPessoa in listapf)
+                        string linha;
+                        while((linha = sr.ReadLine()) != null)
                         {
-                            Console.Clear();
-                            Console.WriteLine(@$"
-
-                            Nome: {cadaPessoa.nome}
-                            Endereço: {cadaPessoa.endereco.logradouro}, número {cadaPessoa.endereco.numero} ({cadaPessoa.endereco.complemento})
-                            Data de nascimento: {cadaPessoa.dataNascimento}
-                            CPF: {cadaPessoa.cpf}
-                            ");
+                            Console.WriteLine($"{linha}");
                         }
-                        Console.WriteLine("Digite qualquer tecla para continuar.");
-                        Console.ReadLine();
                     }
-                    else
-                    {
-                        Console.WriteLine("Lista vazia! Aguarde alguns instantes para voltar ao menu.");
-                        Thread.Sleep(5000);
-                    }
+
+                    Console.WriteLine("Sucesso! Digite qualquer tecla para continuar.");
+                    Console.ReadLine();
 
                         break;
 
