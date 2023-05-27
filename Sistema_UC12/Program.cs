@@ -185,33 +185,77 @@ class Program
             break;
 
             case "2":
-            Console.WriteLine("Você escolheu a opção 2.");
+            
+            string? opcaoPJ;
 
-            PessoaJuridica novaPj = new PessoaJuridica();
-
-            Endereco endPj = new Endereco();
-            endPj.logradouro = "Rua Niteroi";
-            endPj.numero = 180;
-            endPj.complemento = "SENAI";
-            endPj.enderecoComercial = true;
-
-            novaPj.endereco = endPj;
-            novaPj.nome = "SENAI";
-            novaPj.cnpj = "01234567890001";
-            novaPj.razaoSocial = "Empresa de cosméticos.";
-
-            Console.WriteLine($"O endereço do {novaPj.nome} é {novaPj.endereco.logradouro}, número {novaPj.endereco.numero}.");
-
-            novaPj.validarCNPJ(novaPj.cnpj);
-
-            if (novaPj.validarCNPJ(novaPj.cnpj))
+            do
             {
-                Console.WriteLine("CNPJ válido.");
+                Console.Clear();
+                Console.WriteLine(@$"
+
+                #############################################################################
+                #                                                                           #
+                #                 Escolha uma das opções abaixo:                            #
+                #                                                                           #
+                #############################################################################
+                #                                                                           #
+                #                 1 - Cadastrar Pessoa Jurídica                             #
+                #                 2 - Mostrar Pessoas Jurídicas                             #
+                #                                                                           #
+                #                 0 - Voltar ao menu anterior                               #
+                #                                                                           #
+                #############################################################################
+                
+                ");
+
+                opcaoPJ = Console.ReadLine();
+
+                switch (opcaoPJ)
+                {
+                    case "1":
+
+                        PessoaJuridica novapj = new PessoaJuridica ();
+                        Endereco endpj = new Endereco ();
+                        novapj.endereco = endpj;
+
+                        Console.WriteLine("Digite o nome da pessoa jurídica:");
+                        novapj.nome = Console.ReadLine();
+
+                        Console.WriteLine("Digite o CNPJ da pessoa jurídica:");
+                        novapj.cnpj = Console.ReadLine();
+                        //Método de validação do CNPJ//
+                        if (novapj.validarCNPJ(novapj.cnpj))
+                        {
+                            Console.WriteLine("CNPJ válido!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("CNPJ inválido! Verifique se os números digitados estão corretos.");
+                        }
+
+                        Console.WriteLine("Digite o logradouro da pessoa jurídica:");
+                        endpj.logradouro = Console.ReadLine();
+
+                        Console.WriteLine("Digite o número do endereço da pessoa jurídica:");
+                        endpj.numero = int.Parse (Console.ReadLine ());
+
+                    break;
+
+                    case "2":
+
+                    break;
+
+                    case "0":
+
+                    break;
+
+                    default:
+
+                    break;
+                }
             }
-            else
-            {
-                Console.WriteLine("CNPJ inválido.");
-            }
+            while (opcaoPJ != "0");
+            
 
             break;
 
