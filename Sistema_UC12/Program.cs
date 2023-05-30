@@ -116,7 +116,7 @@ class Program
                         Console.WriteLine("Digite o complemento do endereço:");
                         end.complemento = Console.ReadLine();
 
-                        Console.WriteLine("O local especificado é um endereço comercial? S/N");
+                        Console.WriteLine("O endereço especificado é comercial? S/N");
                         string endCom = Console.ReadLine().ToUpper();
                         if (endCom == "S")
                         {
@@ -238,6 +238,30 @@ class Program
 
                         Console.WriteLine("Digite o número do endereço da pessoa jurídica:");
                         endpj.numero = int.Parse (Console.ReadLine ());
+
+                        Console.WriteLine("Digite o complemento do endereço:");
+                        endpj.complemento = Console.ReadLine();
+
+                        Console.WriteLine("O endereço especificado é comercial? S/N");
+                        string endComPj = Console.ReadLine().ToUpper();
+                        if (endComPj =="S")
+                        {
+                            endpj.enderecoComercial = true;
+                        }
+                        else
+                        {
+                            endpj.enderecoComercial = false;
+                        }
+
+                        using (StreamWriter swpj = new StreamWriter ($"{novapj.nome}.txt"))
+                        {
+                            swpj.WriteLine(novapj.nome);
+                            swpj.WriteLine(novapj.cnpj);
+                            swpj.WriteLine(novapj.endereco);
+                        }
+
+                        Console.WriteLine("Cadastro concluído com sucesso!");
+                        Thread.Sleep(5000);
 
                     break;
 
