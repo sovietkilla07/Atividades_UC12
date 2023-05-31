@@ -257,7 +257,6 @@ class Program
                         {
                             swpj.WriteLine(novapj.nome);
                             swpj.WriteLine(novapj.cnpj);
-                            swpj.WriteLine(novapj.endereco);
                         }
 
                         Console.WriteLine("Cadastro concluído com sucesso!");
@@ -266,6 +265,21 @@ class Program
                     break;
 
                     case "2":
+
+                    Console.WriteLine("Digite o nome da PJ que deseja consultar:");
+                    string registroPj = Console.ReadLine();
+
+                    using (StreamReader srpj = new StreamReader ($"{registroPj}.txt"))
+                    {
+                        string linha;
+                        while ((linha = srpj.ReadLine()) != null)
+                        {
+                            Console.WriteLine($"{linha}");
+                        }
+                    }
+
+                    Console.WriteLine("Sucesso! Digite qualquer tecla para continuar.");
+                    Console.ReadLine();
 
                     break;
 
